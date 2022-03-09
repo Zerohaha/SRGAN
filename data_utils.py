@@ -12,6 +12,7 @@ from torchvision.transforms import Compose, RandomCrop, ToTensor, ToPILImage, Ce
 def is_image_file(filename):
     return any(filename.endswith(extension) for extension in ['.png', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG'])
 
+
 # 实际有效的图片区域范围
 def calculate_valid_crop_size(crop_size, upscale_factor):
     return crop_size - (crop_size % upscale_factor)
@@ -61,6 +62,7 @@ class TrainDatasetFromFolder(Dataset):
     def __len__(self):
         return len(self.image_filenames)
 
+
 # 验证集
 class ValDatasetFromFolder(Dataset):
     def __init__(self, dataset_dir, upscale_factor):
@@ -81,6 +83,7 @@ class ValDatasetFromFolder(Dataset):
 
     def __len__(self):
         return len(self.image_filenames)
+
 
 # 测试集
 class TestDatasetFromFolder(Dataset):

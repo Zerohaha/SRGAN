@@ -3,6 +3,7 @@ import math
 import torch.nn.functional as F
 from torch import nn
 
+
 # 生成器
 class Generator(nn.Module):
     def __init__(self, scale_factor):
@@ -83,6 +84,7 @@ class Discriminator(nn.Module):
     def forward(self, x):
         batch_size = x.size(0)
         return F.sigmoid(self.net(x).view(batch_size))
+
 
 # 定义残差块
 class ResidualBlock(nn.Module):
